@@ -10,7 +10,7 @@
 
     </div>
 
-    <?php if($this->session->flashdata('success')) : ?>
+    <?php if ($this->session->flashdata('success')): ?>
 
         <div class="alert alert-success alert-dismissible fade show">
 
@@ -48,62 +48,68 @@
 
                     <tbody>
 
-                    <?php if(empty($pasien)) : ?>
+                        <?php if (empty($pasien)): ?>
 
-                        <tr>
+                            <tr>
 
-                            <td colspan="7" class="text-center">
+                                <td colspan="7" class="text-center">
 
-                                Belum ada data pasien.
+                                    Belum ada data pasien.
 
-                            </td>
+                                </td>
 
-                        </tr>
+                            </tr>
 
-                    <?php else : ?>
+                        <?php else: ?>
 
-                        <?php
-                        $no = 1;
-                        foreach($pasien as $p) :
-                        ?>
+                            <?php
+                            $no = 1;
+                            foreach ($pasien as $p):
+                                ?>
 
-                        <tr>
+                                <tr>
 
-                            <td><?= $no++; ?></td>
+                                    <td><?= $no++; ?></td>
 
-                            <td><?= $p->nama_pasien; ?></td>
+                                    <td><?= $p->nama_pasien; ?></td>
 
-                            <td><?= $p->jenis_kelamin; ?></td>
+                                    <td><?= $p->jenis_kelamin; ?></td>
 
-                            <td><?= $p->umur; ?> Tahun</td>
+                                    <td><?= $p->umur; ?> Tahun</td>
 
-                            <td><?= $p->no_hp; ?></td>
+                                    <td><?= $p->no_hp; ?></td>
 
-                            <td><?= $p->alamat; ?></td>
+                                    <td><?= $p->alamat; ?></td>
 
-                            <td>
+                                    <td>
 
-                                <a href="<?= site_url('pasien/edit/'.$p->id_pasien); ?>" class="btn btn-warning btn-sm">
+                                        <a href="<?= site_url('pasien/riwayat/' . $p->id_pasien); ?>" class="btn btn-info btn-sm">
 
-                                    <i class="bi bi-pencil-square"></i>
+                                            <i class="bi bi-clock-history"></i>
 
-                                </a>
+                                        </a>
 
-                                <a href="<?= site_url('pasien/hapus/'.$p->id_pasien); ?>"
-                                   onclick="return confirm('Yakin ingin menghapus data pasien ini?')"
-                                   class="btn btn-danger btn-sm">
+                                        <a href="<?= site_url('pasien/edit/' . $p->id_pasien); ?>" class="btn btn-warning btn-sm">
 
-                                    <i class="bi bi-trash"></i>
+                                            <i class="bi bi-pencil-square"></i>
 
-                                </a>
+                                        </a>
 
-                            </td>
+                                        <a href="<?= site_url('pasien/hapus/' . $p->id_pasien); ?>"
+                                            onclick="return confirm('Yakin ingin menghapus data pasien ini?')"
+                                            class="btn btn-danger btn-sm">
 
-                        </tr>
+                                            <i class="bi bi-trash"></i>
 
-                        <?php endforeach; ?>
+                                        </a>
 
-                    <?php endif; ?>
+                                    </td>
+
+                                </tr>
+
+                            <?php endforeach; ?>
+
+                        <?php endif; ?>
 
                     </tbody>
 

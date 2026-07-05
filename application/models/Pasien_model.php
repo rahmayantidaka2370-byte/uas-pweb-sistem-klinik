@@ -47,4 +47,25 @@ class Pasien_model extends CI_Model
         return $this->db->count_all($this->table);
     }
 
+    public function getRiwayat($id)
+{
+    $this->db->select('
+        pemeriksaan.*,
+        dokter.nama_dokter
+    ');
+
+    $this->db->from('pemeriksaan');
+
+    $this->db->join(
+        'dokter',
+        'dokter.id_dokter = pemeriksaan.id_dokter'
+    );
+
+    $this->db->where('pemeriksaan.id_pasien', $id);
+
+    $this->db->order_by('tanggal', 'DESC');
+
+    return $this->db->get()->result();
+}
+
 }

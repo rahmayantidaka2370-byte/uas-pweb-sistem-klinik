@@ -109,4 +109,23 @@ class Pasien extends CI_Controller
 
         redirect('pasien');
     }
+
+    public function riwayat($id)
+{
+    $data['title'] = 'Riwayat Pemeriksaan';
+    $data['menu']  = 'pasien';
+
+    $data['pasien'] = $this->Pasien_model->getById($id);
+
+    if (!$data['pasien']) {
+        show_404();
+    }
+
+    $data['riwayat'] = $this->Pasien_model->getRiwayat($id);
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('pasien/riwayat', $data);
+    $this->load->view('templates/footer');
+}
 }
