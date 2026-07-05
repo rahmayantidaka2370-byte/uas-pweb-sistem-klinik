@@ -1,71 +1,162 @@
 ###################
-What is CodeIgniter
+Sistem Informasi Klinik
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Sistem Informasi Klinik merupakan aplikasi berbasis web yang dibangun menggunakan **CodeIgniter 3**, **PHP**, **MySQL**, dan **Bootstrap 5**. Aplikasi ini bertujuan untuk membantu proses pengelolaan data klinik, mulai dari data dokter, pasien, pemeriksaan, hingga pembuatan laporan pemeriksaan.
 
 *******************
-Release Information
+Fitur Utama
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+-  Login Admin
+-  Dashboard
+-  Manajemen Data Dokter (CRUD)
+-  Manajemen Data Pasien (CRUD)
+-  Manajemen Data Pemeriksaan (CRUD)
+-  Riwayat Pemeriksaan Pasien
+-  Laporan Pemeriksaan
+-  Cetak Laporan Pemeriksaan
 
 **************************
-Changelog and New Features
+Teknologi yang Digunakan
 **************************
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+
+- CodeIgniter 3
+- PHP 8.x
+- MySQL / MariaDB
+- Bootstrap 5
+- Bootstrap Icons
+- HTML5
+- CSS3
+- JavaScript
 
 *******************
-Server Requirements
+Struktur Project
 *******************
 
-PHP version 5.6 or newer is recommended.
+```
+application/
+│
+├── controllers/
+│   ├── Auth.php
+│   ├── Dashboard.php
+│   ├── Dokter.php
+│   ├── Pasien.php
+│   ├── Pemeriksaan.php
+│   └── Laporan.php
+│
+├── models/
+│   ├── Auth_model.php
+│   ├── Dashboard_model.php
+│   ├── Dokter_model.php
+│   ├── Pasien_model.php
+│   ├── Pemeriksaan_model.php
+│   └── Laporan_model.php
+│
+└── views/
+    ├── auth/
+    ├── dashboard/
+    ├── dokter/
+    ├── pasien/
+    ├── pemeriksaan/
+    ├── laporan/
+    └── templates/
+```
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+---
+
 
 ************
-Installation
+Database
 ************
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+Import file database ke MySQL melalui phpMyAdmin.
+
+Database terdiri dari tabel:
+
+- users
+- dokter
+- pasien
+- pemeriksaan
 
 *******
-License
+Cara Menjalankan Project
 *******
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+1. Clone repository
+
+```bash
+git clone https://github.com/rahmayantidaka2370-byte/uas-pweb-sistem-klinik.git
+```
+
+2. Pindahkan project ke folder
+
+```
+htdocs/
+```
+
+3. Buat database baru
+
+```
+db_klinik
+```
+
+4. Import file SQL database.
+
+5. Atur konfigurasi database pada
+
+```
+application/config/database.php
+```
+
+6. Jalankan Apache dan MySQL melalui XAMPP.
+
+7. Buka browser
+
+```
+http://localhost/sistem-klinik
+```
+
+atau
+
+```
+http://localhost/sistem-klinik/index.php
+``
 
 *********
-Resources
+Login Default
 *********
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+| Username | Password |
+|----------|----------|
+| admin | admin |
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+> **Catatan:** Password pada database disimpan menggunakan metode **MD5**.
+
+---
 
 ***************
-Acknowledgement
+Fitur yang Tersedia
 ***************
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+- Autentikasi Login
+- Dashboard Statistik
+- CRUD Dokter
+- CRUD Pasien
+- CRUD Pemeriksaan
+- Riwayat Pemeriksaan Pasien
+- Filter Laporan Berdasarkan Tanggal
+- Cetak Laporan
+
+***************
+Pengembang
+***************
+Nama : Rahmayanti Daka
+NIM : 24010110017
+
+Nama : andi bital
+NIM : 24010110022
+
+Nama : Rian Hidayat
+NIM : 24010110045
